@@ -1,14 +1,13 @@
 # CLAUDE.md
 
-`oss-landing-template` 저장소의 작업 지침. `AGENTS.md`는 이 파일만 가리킨다.
+`nightgate-web` 저장소의 작업 지침. `AGENTS.md`는 이 파일만 가리킨다.
 
 ## 이 저장소가 하는 일
 
-오픈소스 프로젝트 홈페이지 **템플릿**이다. 이걸 복제해서 `site.config.ts` 만 고치면
-새 프로젝트의 홈페이지가 된다. 붙이는 방법은 [README.md](README.md)가 정본이고,
-이 파일은 **고칠 때의 규칙**만 다룬다.
-
-복제 절차 자체는 `create-opensource` 스킬이 담당한다.
+[Nightgate](https://github.com/woorichicken/nightgate)의 소개 사이트(https://nightgate.solhun.com)다.
+`oss-landing-template` 을 복제해 `site.config.ts` 를 채웠다. 제품 코드는 원본 저장소에 있고 여기에는 없다.
+사이트 문구의 근거는 원본 README 와 코드다 — 원본에서 안 되는 기능을 된다고 쓰지 않는다
+(Meta Model API 계층 미호출 · LoRA 미학습 · 실제 밤 평가셋 미라벨, FAQ 「How far along is it?」).
 
 ## 깨지 말아야 할 것
 
@@ -62,8 +61,30 @@ UI 라벨(Copy·Copied·GitHub)이 아니라 **제품 문구**면 config 로 빼
 
 ```bash
 pnpm install
-pnpm dev            # http://localhost:3000
+pnpm dev -p 3220    # 라쏘런 허용 호스트에 localhost:3220 이 들어 있다
 pnpm typecheck
 pnpm build
 pnpm db:generate && pnpm db:migrate
 ```
+
+## 로고
+
+- 3D 클레이 심볼 `brand/logo/`(`logo-maker`). 원본·프롬프트·비용은 `brand/logo/source/*.json`.
+- 머리·바닥글 `public/logo.svg`, 탭 `app/icon.svg`·`app/favicon.ico`, iOS `app/apple-icon.png`, 공유 카드 `public/og.png`(`brand/og.html` 을 1200×630 으로 찍는다).
+
+## 데모 영상
+
+- `public/demo.mp4`·`public/feature-*.mp4` 는 **실제 Nightgate 콘솔**을 Playwright 로 조작한 녹화다. 판정은 실제 Muse Glimmer 호출이고, 카드는 원본 `examples/cards` 2장이다. 모델 대기 구간만 빠르게 돌렸다.
+- 다시 찍기: `scripts/demo/` 의 README.
+
+## 피드백 위젯 (feedback-kit)
+
+- 부착 타입: **global**(홈페이지 방문자 전원). 배선은 `components/feedback/FeedbackWidget.tsx`, 마운트는 `app/layout.tsx`.
+- 수집처: 라쏘런 프로젝트 「Nightgate 홈페이지 (nightgate-web)」 · 소스 `nightgate-web`. 허용 호스트: `nightgate.solhun.com`, `nightgate-web.vercel.app`, `localhost:3220`
+  (호스트를 늘리면 `dp update-source-hosts` 도 같이 — 안 맞으면 버튼은 뜨는데 보내면 403).
+- 환경변수 `NEXT_PUBLIC_DP_FEEDBACK_URL`·`_KEY` — 빌드 때 인라인되므로 Vercel production·preview 에 둘 다 넣는다. 비면 위젯이 조용히 사라진다.
+
+## 배포
+
+- GitHub `woorichicken/nightgate-web`(public) → Vercel `gyeonghunjeong-7007s-projects/nightgate-web`, production branch `main`. main 에 push 하면 자동 배포된다. 수동 `vercel --prod` 는 쓰지 않는다.
+- env: `NEXT_PUBLIC_DP_FEEDBACK_URL`·`_KEY`(production·preview), `DATABASE_URL`·`ADMIN_API_KEY`(sensitive, production·preview). DB 는 Neon `nightgate-web`(`odd-forest-69254633`, aws-us-east-2).

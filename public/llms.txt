@@ -1,36 +1,29 @@
-# CLI Manager (Solhun)
+# Nightgate
 
-> Manage Claude Code, Codex CLI, and Gemini CLI from a single macOS desktop dashboard.
+> Your coding agents work all night. In the morning, Nightgate shows you only the decisions that are yours, judged by Muse Glimmer on your own hardware.
 
-A desktop application for macOS that centralizes management of multiple CLI agents. Switch between Claude Code, Codex CLI, and Gemini CLI, organize projects in one workspace, rename agents to define their roles, and instantly switch between VS Code, Cursor, and other editors. All data is processed locally with Apple notarization for security.
+Every overnight agent writes the same JSON report card when it stops. A narrow rule floor catches git push, production deploys, migrations, and payments with no model call. Muse Glimmer judges every other ask against six kinds of human decision: hard to undo, goes outside, database, product direction, customers, and account or money. Anything unsure ends with the human. Claims like "tests pass" are re-checked. The human's "this needed me" or "the agent could have decided" clicks become training data for a LoRA on Glimmer.
 
-## Core Features
+Status: v0.1.0. The Meta Model API tier has not been called, the LoRA has not been trained, and the evaluation set from real nights is not labelled yet.
 
-- [Agent Management](https://solhun.com): Manage Claude Code, Codex CLI, and Gemini CLI in a unified dashboard
-- [Project Organization](https://solhun.com): Organize all projects in one centralized workspace
-- [Agent Customization](https://solhun.com): Rename CLI agents to define their specific roles and purposes
-- [Editor Switching](https://solhun.com): Switch instantly between VS Code, Cursor, and other code editors
+## Docs
 
-## Documentation
+- [README](https://github.com/woorichicken/nightgate#readme): how it works, Glimmer setup, environment variables, measurements
+- [Report card format](https://github.com/woorichicken/nightgate/blob/main/prompts/agent-card.md): the instructions to append to an overnight agent's prompt
+- [Training data policy](https://github.com/woorichicken/nightgate/blob/main/docs/decisions/0001-training-data-policy.md): which decisions may train the judge
+- [Docs page](https://nightgate.solhun.com/docs)
+- [Changelog](https://nightgate.solhun.com/changelog)
+- [Roadmap](https://nightgate.solhun.com/roadmap)
 
-- [Getting Started](https://solhun.com/docs): Installation guide and initial setup instructions
-- [Pricing](https://solhun.com/pricing): Free core features with optional premium capabilities
+## Install
 
-## Resources
+Needs Node 22.18+. TypeScript runs directly, with no build step.
 
-- [Gallery](https://solhun.com/gallery): Screenshots and visual demonstrations of the application
-- [Changelog](https://solhun.com/changelog): Version history and feature updates
-- [FAQ](https://solhun.com/#faq): Frequently asked questions about CLI agent management
+- `git clone https://github.com/woorichicken/nightgate && cd nightgate && pnpm install`
+- `node src/cli.ts seed` copies the example cards in
+- `node src/cli.ts review` judges them
+- `node src/cli.ts serve` opens the console on http://127.0.0.1:4777
 
-## Technical Details
+## License
 
-- Platform: macOS Desktop Application
-- Supported CLI Tools: Claude Code, Gemini CLI, Codex CLI, and custom CLI tools
-- Data Privacy: All data processed locally, no external data transmission
-- Security: Apple notarized application
-- Price: Free core features
-
-## Optional
-
-- Windows Support: Coming soon
-- Linux Support: Not yet on roadmap
+MIT

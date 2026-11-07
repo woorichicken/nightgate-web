@@ -2,7 +2,7 @@
 
 | 스크립트 | 용도 |
 | --- | --- |
-| [demo-scenario.mjs](demo-scenario.mjs) | **무엇을 찍나** — 이 파일만 고친다 (`pnpm demo:record`) |
+| [demo/scenario.mjs](demo/scenario.mjs) | **무엇을 찍나** — 이 파일만 고친다 (`pnpm demo:record`) |
 | [record-demo.mjs](record-demo.mjs) | **어떻게 찍나** — 리코더. 보통 안 건드린다 |
 
 ## 데모 영상 — 사람이 안 찍는다
@@ -63,7 +63,7 @@ media: { type: "video", src: "/demo.mp4", alt: "..." }
 
 ### 시나리오 고치기
 
-`demo-scenario.mjs` 의 `scenario` 함수만 고친다. 도구는 여섯 개다.
+`demo/scenario.mjs` 의 `scenario` 함수만 고친다. 도구는 여섯 개다.
 
 | 도구 | 쓰는 곳 |
 | --- | --- |
