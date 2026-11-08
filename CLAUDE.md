@@ -74,7 +74,8 @@ pnpm db:generate && pnpm db:migrate
 
 ## 데모 영상
 
-- `public/demo.mp4`·`public/feature-*.mp4` 는 **실제 Nightgate 콘솔**을 Playwright 로 조작한 녹화다. 판정은 실제 Muse Glimmer 호출이고, 카드는 원본 `examples/cards` 2장이다. 모델 대기 구간만 빠르게 돌렸다.
+- 히어로 `public/promo.mp4`(+ `promo-poster.jpg`)는 brand 작품 `brand-kit/videos/nightgate-promo`(CLI Manager 데모 콘셉트)의 웹판이다 — CLI Manager 데모 프로필 안에서 `nightgate morning`·`nightgate dataset` 을 친 화면이고, 판정은 녹화 전에 실제 Muse Glimmer 로 돌렸다(그 작품의 `scenario/night/`). 다시 만들기는 그 작품의 `CLAUDE.md`.
+- `public/feature-*.mp4` 는 **실제 Nightgate 콘솔**을 Playwright 로 조작한 녹화다. 판정은 실제 Muse Glimmer 호출이고, 카드는 원본 `examples/cards` 2장이다. 모델 대기 구간만 빠르게 돌렸다.
 - 다시 찍기: `scripts/demo/` 의 README.
 
 ## 피드백 위젯 (feedback-kit)
