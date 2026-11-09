@@ -73,7 +73,9 @@ export default function LandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className="pt-0 lg:pt-[96px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
+      {/* 휴대폰 폭(<640)에서만 좌우 8px 안쪽 여백 — 페이지 세로선(16px)에 설치 칸·영상 틀이 붙어 「여백 없고 잘린다」로 보였다(2026-11-09 사람 코멘트).
+            템플릿은 `pl-0 pr-0` 이 `px-2` 를 지워 여백이 0 이었다. sm 이상은 `sm:pl-0 sm:pr-0` 그대로라 1440 화면은 안 바뀐다. */}
+      <div className="pt-0 lg:pt-[96px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0">
         {/* ── 히어로 ─────────────────────────────────────────── */}
         <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           <div className="self-stretch flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
