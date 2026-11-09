@@ -61,7 +61,9 @@ export function InstallCommand({ id = "install" }: { id?: string }) {
 
       <div className="flex items-center gap-3 w-full bg-white border border-[rgba(2,6,23,0.08)] rounded-xl shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] px-4 py-3">
         <span className="text-[rgba(55,50,47,0.4)] select-none font-mono text-sm">$</span>
-        <code ref={codeRef} className="flex-1 text-[#37322F] font-mono text-sm overflow-x-auto whitespace-nowrap">
+        {/* 휴대폰 폭에선 명령을 칸 안에서 줄바꿈한다 — 한 줄 가로 스크롤은 `github.com/wo` 에서 잘린 것처럼 보였다.
+            min-w-0 이 없으면 flex 항목이 글자 폭만큼 버텨 칸이 밖으로 밀린다. sm 이상은 예전처럼 한 줄 + 칸 안 스크롤. */}
+        <code ref={codeRef} className="flex-1 min-w-0 text-[#37322F] font-mono text-sm whitespace-normal [overflow-wrap:anywhere] sm:overflow-x-auto sm:whitespace-nowrap">
           {current.command}
         </code>
         <button

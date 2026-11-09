@@ -95,10 +95,10 @@ export const hero = {
   /** 히어로 스크롤 애니메이션 안에 들어갈 데모. mp4 또는 이미지. */
   media: {
     type: "video" as "image" | "video",
-    src: "/demo.mp4",
+    src: "/promo.mp4",
     /** 영상이 뜨기 전·자동재생이 막혔을 때 보이는 정지 화면. 영상이면 넣는다. */
-    poster: "/demo-poster.jpg" as string | undefined,
-    alt: "The Nightgate console judges the two example cards with Muse Glimmer, keeps four asks for the human, and records a label for the judge",
+    poster: "/promo-poster.jpg" as string | undefined,
+    alt: "In CLI Manager, two overnight agents have left cards full of questions. In the morning, nightgate morning shows the four asks only the human can settle and one failed claim, and nightgate dataset splits the human's labels into training and evaluation rows",
   },
 } as const;
 
